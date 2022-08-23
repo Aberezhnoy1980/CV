@@ -1,0 +1,236 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {/Users/alex/Documents/Study/Career/Images} }
+\usepackage[left=1cm,right=1cm,top=.5cm,bottom=.5cm, footskip=.1cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt} % par no indent
+
+\RequirePackage{palatino} % font
+\RequirePackage{hyperref}
+\RequirePackage{etoolbox} %\ifnumgreater
+\RequirePackage{tikz} %\foreach
+\RequirePackage{xcolor}
+\definecolor{lightblue}{RGB}{0, 150, 180}
+\definecolor{emphblue}{RGB}{0, 120, 150}
+\colorlet{emphcolor}{emphblue}
+\colorlet{body}{black!80!white}
+\RequirePackage{fontawesome}
+\RequirePackage{fancyhdr} % header & footer
+\RequirePackage{lastpage} % get total page num
+
+% new cmd \cvsection
+\newcommand{\cvsection}[1] {
+  \medskip
+  {\Large\scshape\raggedright{\color{emphcolor}{#1}}\par}\medskip
+  \vspace{-\baselineskip}
+  {\color{lightblue}\noindent\rule\linewidth{1pt} \par}
+  \smallskip
+}
+
+% new cmd \cvevent
+\newcommand{\cvevent}[4]{
+  \noindent\makebox[0.2\linewidth][l]{\faCalendar~#1}
+  \large\makebox[0.4\linewidth][l]{#2}
+  \par\smallskip
+  \noindent\makebox[0.2\linewidth][l]{}
+  \makebox[0.5\linewidth][l]{\textbf{\color{emphcolor}#3}}
+  \small\makebox[0.2\linewidth][l]{\faMapMarker~#4}\par
+  \smallskip
+  \normalsize
+}
+
+% new cmd \cvproject
+\newcommand{\cvproject}[2]{
+  \noindent\makebox[0.2\linewidth][l]{\faCalendar~#1}
+  %\large\makebox[0.4\linewidth][l]{\color{emphcolor}#2}
+  %\par\smallskip
+  \large\makebox[0.5\linewidth][l]{\textbf{\color{emphcolor}#2}}\par
+  %\par\smallskip
+  \smallskip
+  \normalsize
+}
+
+\newcommand{\cvprogress}[2]{
+  \makebox[0.2\linewidth][l]{#1}
+  %\large\makebox[0.4\linewidth][l]{\color{emphcolor}#2}
+  %\par\smallskip
+  \large\makebox[0.5\linewidth][l]{#2}\par
+  %\par\smallskip
+  \smallskip
+  \normalsize
+}
+
+% new cmd \cvitem
+% use \parbox to break lines inside boxes
+\newcommand{\cvitem}[1]{
+  \noindent\hspace{0.2\linewidth}
+  \makebox[1em][c]{\faAngleDoubleRight}
+  \parbox[t]{0.75\linewidth}{#1}\par
+  \smallskip
+}
+
+
+% new cmd \cvsubitem
+\newcommand{\cvsubitem}[1]{
+  \noindent\hspace{0.2\linewidth}\hspace{3mm}
+  \makebox[1em][c]{\faAngleDoubleRight}
+  \parbox[t]{0.75\linewidth}{#1}\par
+  \smallskip
+}
+
+% new cmd \cvskill
+\newcommand{\cvskill}[2]{
+  \noindent\hspace{0.2\linewidth}
+  \makebox[0.4\linewidth][l]{#1}
+  \makebox[0.3\linewidth][l]{
+    \small
+    \foreach \x in {1,...,10}{
+      {\ifnumgreater{\x}{#2}{\color{body!30}}{\color{emphcolor}}\faCircle}
+    }
+  }\par
+  \smallskip
+}
+
+
+\newcommand{\cvsimpitem}[2]{
+  \noindent\hspace{0.2\linewidth}
+  \makebox[0.4\linewidth][l]{#1}
+  \makebox[0.3\linewidth][l]{#2}
+  \par\smallskip
+}
+
+\newcommand{\cvstring}[1]{
+  \noindent\hspace{0.2\linewidth}
+  \parbox[t]{0.75\linewidth}{#1}\par
+  \smallskip
+}
+
+\newcommand{\setfooter}[1]{
+  \pagestyle{fancy}
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt} % remove header lines
+  \cfoot{{\color{lightblue}\thepage\ of \pageref{LastPage}}}
+  \rfoot{{\color{lightblue}#1}}
+}
+
+\newcommand*{\makecvfooter}[3]{%
+  \fancyfoot{}
+  \fancyfoot[L]{\footerstyle{#1}}
+  \fancyfoot[C]{\footerstyle{#2}}
+  \fancyfoot[R]{\footerstyle{#3}}
+}
+
+\makecvfooter
+  {\today}
+  {Alecsandr Berezhnoy}
+  {\thepage}
+
+\begin{document}
+
+\begin{table}
+    \begin{minipage}{0\linewidth}
+        \centering
+        \includegraphics[height =1 in]{foto1}
+    \end{minipage}
+    \begin{minipage}{0.9\linewidth}
+        \centering
+        \setlength{\tabcolsep}{70pt}
+        \def\arraystretch{1.1}
+        \begin{tabular}{ll}
+            %\textbf{}  &  {\includegraphics[height = 11 pt] {skype} {Habr}} \\
+            \textbf{}  &  {\includegraphics[height = 11 pt] {skype} {berezhnoy\_aa1980}} \\
+            \textbf{\Large{Aleksandr Berezhnoy}}  &  {\includegraphics[height = 11 pt] {phone} {+7 999 4141041} \includegraphics[height = 11 pt] {whatsapp}} \\
+            \textbf{29.12.1980} &    {\includegraphics[height = 10 pt] {email1} {Berezhnoy\_aa@mail.ru}} \\
+            \textbf{Krasnodar, Russia} &    {\includegraphics[height = 10 pt] {telegram2} {Berezhnoy\_Sasha}} \\
+            \textbf{} &    {\includegraphics[height = 10 pt] {gitHub} {Aberezhnoy1980}}
+            %\textbf{} &    {\includegraphics[height = 10 pt] {gitHub} {Stackoverflow}}
+        \end{tabular}
+    \end{minipage}\hfill
+\end{table}
+
+\cvsection{Experience}
+
+\cvevent{2021/01--ongoing}{Trainee programmer (graduate)}
+        {\href{https://gb.ru}{GeekBrains}}{Moscow, Russia}
+\cvitem{Java-development}
+\cvitem{Frontend-development}
+
+\cvevent{2007/01--2020/12}{Analyst}
+        {\href{https://www.slb.ru/}{Schlumberger}}{Moscow, Russia}
+\cvitem{marketing \& sales: market \& tender campaigns analysis, research \$ reporting}
+\cvitem{finance: investment projects dev, decomposition P\&L modeling on contracts}
+\cvitem{supply: implementation of tender procedures \& inventory management (JIT), ISO standards, export/import ops, staff training}
+
+\cvsection{IT Skills}
+
+%\cvsimpitem{}{}
+\cvskill{Java}{8}
+\cvskill{Spring}{6}
+\cvskill{MySQL}{6}
+\cvskill{HTML/CSS}{6}
+\cvskill{Maven}{8}
+\cvskill{Git/Docker}{7}
+\cvskill{bash/Latex/xml/yaml}{4}
+\cvsimpitem{}{}
+
+\cvprogress{General OS:}{macOS/GNU/Linux(Ubuntu)}
+\cvprogress{General IDEs:}{IntelijIDEA/VSC/MySQLWorkbanch}
+\cvprogress{In progress:}{JS/TS/C++/C\#/Python/Vue/React/Angular}
+
+\cvsection{Projects}
+
+\cvproject{2021/05} {\href{https://github.com/Aberezhnoy1980/java-network-chat}{Network chat}}
+\cvitem{simple client-server application with the ability to authorize, log and store messages}
+\cvitem{stack: {\em Java-core, io, JDBC, JavaFX, SQLite, Log4j, Maven}}
+\cvitem{GitHub: {\em \href{https://github.com/Aberezhnoy1980/java-network-chat}{\textbf{\color{emphcolor}https://github.com/Aberezhnoy1980/java-network-chat}}}}
+
+\cvproject{2021/09} {\href{https://github.com/Aberezhnoy1980/network-storage-manager}{Network storage}}
+\cvitem{client-server application for exchanging files between an authorized client and server}
+\cvitem{stack {\em Java-core, JDBC, Netty, JavaFX, jackson, lombok, MySQL, Log4j, Maven}}
+\cvitem{GitHub: {\em \href{https://github.com/Aberezhnoy1980/network-storage-manager}{\textbf{\color{emphcolor}https://github.com/Aberezhnoy1980/network-storage-manager}}}}
+
+\cvproject{2021/12} {\href{https://github.com/Aberezhnoy1980/StarGame}{Game}}
+\cvitem{android game}
+\cvitem{stack {\em Java-core, libGDX, Gradle}}
+\cvitem{GitHub: {\em \href{https://github.com/Aberezhnoy1980/StarGame}{\textbf{\color{emphcolor}https://github.com/Aberezhnoy1980/StarGame}}}}
+
+\cvproject{2022/06} {\href{https://github.com/Aberezhnoy1980/eshop_project}{Spring Market}}
+\cvitem{A complete MVC project for an online store, including using microservice architecture}
+\cvitem{stack {\em Java-core, MySQL, Maven, Stream API, Thymeleaf, Spring Boot, Spring REST API, Spring data JPA, jackson, Spring security, hibernate ORM, liquibase, NodeJS \& Angular, redis, Spring Integration, Docker, RabbitMQ, Selenium \& Cucumber}}
+\cvitem{GitHub: {\em \href{https://github.com/Aberezhnoy1980/eshop\_project}{\textbf{\color{emphcolor}https://github.com/Aberezhnoy1980/eshop\_project}}}}
+
+\cvsection{Education}
+\cvevent{2021/01--present}{Java development}
+        {\href{https://gb.ru}{GeekBrains}}{Moscow, Russia}
+\cvitem{theoretical and practical experience:}
+\cvsubitem{Java core: OOP, classes/enums/interfaces/annotation, exceptions, multithreading, generics, collections, GUI (JavaFX \& Swing), database \& networking basics, testing, reflection API. Optional Stream API, Lyambda expressions, Netty}
+\cvsubitem{SQL (MySQL): DB design, DDL/DML commands, subqueries and nested queries, window functions, Join, view, functions, triggers, transactions}
+\cvsubitem{Spring Framework: Java EE basics, Spring MVC, Spring Boot, Java Persistence API, Spring Data, Thymeleaf, Spring REST, Spring Security, SpEL, AOP, Spring WS, WebSocket, Spring Cloud, Spring Integration, Spring Testing}
+\cvsubitem{Algorithms, data structures, architectures, patterns}
+\cvsubitem{optional: computer networks \& operating systems, Linux work station, bash, GIT, redis, Swagger, liquebase, TomCAT/WildFly, Docker}
+\cvevent{2021/09--present}{Frontend development}
+        {\href{https://gb.ru}{GeekBrains}}{Moscow, Russia}
+\cvitem{theoretical and practical experience:}
+\cvsubitem{HTML5/CSS3/JS - learning is ongoing}
+\cvevent{1998/09--2003/06}{Economics and management}
+        {\href{https://www.ssuwt.ru}{Siberian State University of Water Transport}}{Novosibirsk, Russia}
+\cvitem{Engineer economist}
+
+\cvsection{Languages}
+\cvsimpitem{Russian}{native}
+\cvsimpitem{English}{pre-intermediate}
+
+\cvsection{Bio}
+\cvstring{my interests are astrophysics, quantum mechanics, programming, AI, cinema and computer games, philosophy, psychology, sports and health. I strive for new knowledge and experience. Currently an IT student}
+
+
+\cvsection{}
+
+\end{document}
