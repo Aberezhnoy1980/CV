@@ -1,13 +1,13 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
-\usepackage[russian]{babel}
+%\usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \graphicspath{ {/Users/alex/Documents/Study/Career/Images} }
-\usepackage[left=1 cm,right=1 cm,top=1 cm,bottom=1 cm, footskip=.5 cm]{geometry}
+\usepackage[left=1 cm,right=1 cm,top=0.7 cm,bottom=0.7 cm, footskip=0.1 cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 
 \setlength{\parindent}{0pt} % par no indent
@@ -24,6 +24,22 @@
 \RequirePackage{fontawesome}
 \RequirePackage{fancyhdr} % header & footer
 \RequirePackage{lastpage} % get total page num
+
+\colorlet{lighttext}{lightgray}
+
+%% Header & Footer
+% Set offset to each header and footer
+%\fancyhfoffset{em}
+% Remove head rule
+%\renewcommand{\headrulewidth}{0pt}
+% Clear all header & footer fields
+%\fancyhf{}
+% Enable if you want to make header or footer using fancyhdr
+\pagestyle{fancy}
+
+%\newcommand*{\footerfont}{\sourcesanspro}
+
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\scshape\color{lighttext} #1}}
  
 % new cmd \cvsection
 \newcommand{\cvsection}[1] {
@@ -112,29 +128,26 @@
   \smallskip
 }
 
-\newcommand{\setfooter}[1]{
-  \pagestyle{fancy}
-  \fancyhf{}
-  \renewcommand{\headrulewidth}{0pt} % remove header lines
-  \cfoot{{\color{lightblue}\thepage\ of \pageref{LastPage}}}
-  \rfoot{{\color{lightblue}#1}}
-}
+%\newcommand{\setfooter}[1]{
+  %\pagestyle{fancy}
+  %\fancyhf{}
+  %\renewcommand{\headrulewidth}{0pt} % remove header lines
+  %\cfoot{{\color{lightblue}\thepage\ of \pageref{LastPage}}}
+  %\rfoot{{\color{lightblue}#1}}
+%}
 
-\newcommand*{\makecvfooter}[3]{%
+\newcommand*{\makecvfooter}[3]{
   \fancyfoot{}
   \fancyfoot[L]{\footerstyle{#1}}
   \fancyfoot[C]{\footerstyle{#2}}
   \fancyfoot[R]{\footerstyle{#3}}
 }
 
-\makecvfooter
-  {\today}
-  {Alecsandr Berezhnoy}
-  {\thepage}
-
 \newcommand{\photo}[3][]{\def\@photo{#2}\def\@photodiameter{#3}\def\@photoformat{#1}}
-
+  
 \begin{document}
+
+\makecvfooter{\today}{Aleksandr Berezhnoy}{\thepage}
 
 \begin{table}
     \begin{minipage}{0\linewidth}
@@ -152,13 +165,13 @@
         \setlength{\tabcolsep}{70pt}
         \def\arraystretch{1.1}
         \begin{tabular}{ll}
-            %\textbf{}  &  {\includegraphics[height = 11 pt] {skype} {Habr}} \\
-            \textbf{}  &  {\includegraphics[height = 11 pt] {skype} {berezhnoy\_aa1980}} \\
-            \textbf{\Large{Aleksandr Berezhnoy}}  &  {\includegraphics[height = 11 pt] {phone} {+7 999 4141041} \includegraphics[height = 11 pt] {whatsapp}} \\
-            \textbf{29.12.1980} &    {\includegraphics[height = 10 pt] {email1} {Berezhnoy\_aa@mail.ru}} \\
-            \textbf{Krasnodar, Russia} &    {\includegraphics[height = 10 pt] {telegram2} {Berezhnoy\_Sasha}} \\
-            \textbf{} &    {\includegraphics[height = 10 pt] {gitHub} {Aberezhnoy1980}}
-            %\textbf{} &    {\includegraphics[height = 10 pt] {gitHub} {Stackoverflow}}
+            %\textbf{} & {\includegraphics[height = 11 pt] {skype} {Habr}} \\
+            \textbf{} & {\includegraphics[height = 11 pt] {skype} {berezhnoy\_aa1980}} \\
+            \textbf{\Large{Aleksandr Berezhnoy}} & {\includegraphics[height = 11 pt] {phone} {+7 999 4141041} \includegraphics[height = 11 pt] {whatsapp}} \\
+            \textbf{29.12.1980} & \href{mailto:berezhnoy\_aa@mail.ru}{\includegraphics[height = 10 pt] {email1} {Berezhnoy\_aa@mail.ru}} \\
+            \textbf{Krasnodar, Russia} & \href{https://t.me/Berezhnoy_Sasha}{\includegraphics[height = 10 pt] {telegram2} {Berezhnoy\_Sasha}} \\
+            \textbf{} & \href{https://github.com/Aberezhnoy1980}{\includegraphics[height = 10 pt] {gitHub} {Aberezhnoy1980}}
+            %\textbf{} & {\includegraphics[height = 10 pt] {gitHub} {Stackoverflow}}
         \end{tabular}
     \end{minipage}\hfill
 \end{table}
@@ -207,7 +220,7 @@
 \cvitem{stack {\em Java-core, JDBC, Netty, JavaFX, jackson, lombok, MySQL, Log4j, Maven}}
 \cvitem{GitHub: {\em \href{https://github.com/Aberezhnoy1980/network-storage-manager}{\textbf{\color{emphcolor}https://github.com/Aberezhnoy1980/network-storage-manager}}}}
 
-\cvproject{2021/12} {\href{https://github.com/Aberezhnoy1980/StarGame}{Game}}
+\cvproject{2021/12} {\href{https://github.com/Aberezhnoy1980/StarGame}{StarGame}}
 \cvitem{android game}
 \cvitem{stack {\em Java-core, libGDX, Gradle}}
 \cvitem{GitHub: {\em \href{https://github.com/Aberezhnoy1980/StarGame}{\textbf{\color{emphcolor}https://github.com/Aberezhnoy1980/StarGame}}}}
@@ -239,20 +252,20 @@
 \cvsimpitem{English}{pre-intermediate}
 
 \cvsection{Bio}
-\cvstring{More than a year and a half in Java development. Previously, I have been engaged in analytics and research of the Russia and CIS O\&G/OFS markets for more than 13 years. I have rich experience in the development of investment and infrastructure projects. I developed automated economic models. I have worked with large datasets. Actively participated in the development and implementation of ERP and CRM systems. I have developed, automated and implemented reporting formats, conducted staff training.
-During the training and internship, I mastered OOP skills, studied architectures and design patterns, algorithms and data structures, working with the network and input / output streams, gained practical experience in developing a monolithic MVC project with subsequent optimization for microservice architecture, enriched my experience with data due to the acquired skills in working with relational DBMS and ORM, gained experience in the direction of virtualization and containerization and other related IT areas.
+\cvstring{More than a year and a half in Java development. Previously, I have been engaged in analytic and research of the Russia and CIS O\&G \& OFS markets for more than 13 years. I have rich experience in the development of investment and infrastructure projects. I developed automated economic models. I have worked with large datasets. Actively participated in the development and implementation of ERP and CRM systems. I have developed, automated and implemented reporting formats, conducted staff training.
+During the training, I mastered OOP skills, studied architectures and design patterns, algorithms and data structures, working with the network and input / output streams, gained practical experience in developing a monolithic MVC project with subsequent optimization for microservice architecture, enriched my experience with data due to the acquired skills in working with relational DBMS and ORM, gained experience in the direction of virtualization and containerization and other related IT areas.
 Interests: astrophysics, quantum mechanics, programming, AI, cinema and computer games, philosophy, psychology, sports and health. I strive for new knowledge and experience. Looking for Java developer job}
 
 
 \cvsection{}
 \cvsimpitem{}{}
 %\cvsimpitem{}{}
-    \begin{minipage}{0\linewidth}
-       \centering
-        \includegraphics[width = 1 in]{qr-code}
-    \end{minipage}\hfill
+    %\begin{minipage}{0\linewidth}
+       %\centering
+        %\includegraphics[width = 1 in]{qr-code}
+    %\end{minipage}\hfill
     \begin{minipage}{1.1\linewidth}
-        \setlength{\tabcolsep}{158 pt}
+        \setlength{\tabcolsep}{78 pt}
         \begin{tabular}{ll}
         	\textbf{} & \includegraphics[width = 1 in]{qr-refer}
         \end{tabular}
