@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \graphicspath{ {/Users/alex/Documents/Study/Career/Images} }
-\usepackage[left=1cm,right=1cm,top=.5cm,bottom=.5cm, footskip=.1cm]{geometry}
+\usepackage[left=1 cm,right=1 cm,top=1 cm,bottom=1 cm, footskip=.5 cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 
 \setlength{\parindent}{0pt} % par no indent
@@ -24,7 +24,7 @@
 \RequirePackage{fontawesome}
 \RequirePackage{fancyhdr} % header & footer
 \RequirePackage{lastpage} % get total page num
-
+ 
 % new cmd \cvsection
 \newcommand{\cvsection}[1] {
   \medskip
@@ -132,14 +132,22 @@
   {Alecsandr Berezhnoy}
   {\thepage}
 
+\newcommand{\photo}[3][]{\def\@photo{#2}\def\@photodiameter{#3}\def\@photoformat{#1}}
+
 \begin{document}
 
 \begin{table}
     \begin{minipage}{0\linewidth}
-        \centering
-        \includegraphics[height =1 in]{foto1}
+\begin{tikzpicture}
+    \clip (0,0) circle (1.5 cm);
+    \node at (0,0) {\includegraphics[width = 1.3 in]{main}}; 
+    % if necessary the picture may be moved by changing the at (coordinates)
+    % width defines the 'zoom' of the picture
+    \end{tikzpicture}
+       \centering
+        %\includegraphics[height = 1 in]{foto1}
     \end{minipage}
-    \begin{minipage}{0.9\linewidth}
+    \begin{minipage}{1.1\linewidth}
         \centering
         \setlength{\tabcolsep}{70pt}
         \def\arraystretch{1.1}
@@ -178,11 +186,14 @@
 \cvskill{Maven}{8}
 \cvskill{Git/Docker}{7}
 \cvskill{bash/Latex/xml/yaml}{4}
-\cvsimpitem{}{}
+\cvskill{macOS/GNU/Linux(Ubuntu)}{7}
+\cvskill{Intellij IDEA/VSC/MySQLWorkbanch}{8}
+%\cvskill{JavaScript/TypeScript}{3}
+%\cvsimpitem{}{}
 
-\cvprogress{General OS:}{macOS/GNU/Linux(Ubuntu)}
-\cvprogress{General IDEs:}{IntelijIDEA/VSC/MySQLWorkbanch}
-\cvprogress{In progress:}{JS/TS/C++/C\#/Python/Vue/React/Angular}
+%\cvprogress{General OS:}{macOS/GNU/Linux(Ubuntu)}
+%\cvprogress{General IDEs:}{IntelijIDEA/VSC/MySQLWorkbanch}
+%\cvprogress{In progress:}{JS/TS/C++/C\#/Python/Vue/React/Angular}
 
 \cvsection{Projects}
 
@@ -228,9 +239,23 @@
 \cvsimpitem{English}{pre-intermediate}
 
 \cvsection{Bio}
-\cvstring{my interests are astrophysics, quantum mechanics, programming, AI, cinema and computer games, philosophy, psychology, sports and health. I strive for new knowledge and experience. Currently an IT student}
+\cvstring{More than a year and a half in Java development. Previously, I have been engaged in analytics and research of the Russia and CIS O\&G/OFS markets for more than 13 years. I have rich experience in the development of investment and infrastructure projects. I developed automated economic models. I have worked with large datasets. Actively participated in the development and implementation of ERP and CRM systems. I have developed, automated and implemented reporting formats, conducted staff training.
+During the training and internship, I mastered OOP skills, studied architectures and design patterns, algorithms and data structures, working with the network and input / output streams, gained practical experience in developing a monolithic MVC project with subsequent optimization for microservice architecture, enriched my experience with data due to the acquired skills in working with relational DBMS and ORM, gained experience in the direction of virtualization and containerization and other related IT areas.
+Interests: astrophysics, quantum mechanics, programming, AI, cinema and computer games, philosophy, psychology, sports and health. I strive for new knowledge and experience. Looking for Java developer job}
 
 
 \cvsection{}
+\cvsimpitem{}{}
+%\cvsimpitem{}{}
+    \begin{minipage}{0\linewidth}
+       \centering
+        \includegraphics[width = 1 in]{qr-code}
+    \end{minipage}\hfill
+    \begin{minipage}{1.1\linewidth}
+        \setlength{\tabcolsep}{158 pt}
+        \begin{tabular}{ll}
+        	\textbf{} & \includegraphics[width = 1 in]{qr-refer}
+        \end{tabular}
+    \end{minipage}\hfill
 
 \end{document}
